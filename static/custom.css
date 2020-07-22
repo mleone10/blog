@@ -10,3 +10,9 @@
     --code-bg: #3c3e37;
     --border: #62675b;
   }
+
+  img[src$='#about'] {
+    display: block;
+    margin: 0.7rem auto;
+    width: 40%;
+  }
