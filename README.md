@@ -1,5 +1,16 @@
-# marioleone.me
-> Personal blog and portolio website
+# Personal Blog
+> Powered by Hugo and the Paper Theme
 
-## Deployment
-* Pushes to `master` branch automatically build and deploy website
+## Creating Content
+New blog posts can be created with:
+```
+$ hugo new posts/<post-title>.md
+```
+
+A local server can be run with:
+```
+$ hugo server -D
+```
+
+## Deploying
+TODO
