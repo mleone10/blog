@@ -1,0 +1,12 @@
+.dark {
+    --theme: #1b1f14;
+    --entry: #31332e;
+    --primary: rgba(255, 255, 255, 0.84);
+    --secondary: rgba(255, 255, 255, 0.56);
+    --tertiary: rgba(255, 255, 255, 0.16);
+    --content: rgba(255, 255, 255, 0.64);
+  
+    --hljs-bg: #31332e;
+    --code-bg: #3c3e37;
+    --border: #62675b;
+  }
