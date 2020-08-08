@@ -1,0 +1,30 @@
+name: Deploy Hugo Site
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+          fetch-depth: 0
+      - name: Install Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.74.2'
+      - name: Build blog
+        run: hugo --minify
+      - name: Deploy page
+        run: |
+          mv public docs
+          cp CNAME docs
+          git config --local user.email "${{ secrets.EMAIL }}"
+          git config --local user.name "mleone10"
+          git add -A
+          git commit -m "Updating site"
+          git push -f "https://${{ env.GITHUB_ACTOR }}:${{ secrets.GITHUB_TOKEN }}@github.com/mleone10/marioleone.me.git" HEAD:gh-pages
