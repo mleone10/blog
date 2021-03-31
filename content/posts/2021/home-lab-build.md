@@ -15,6 +15,8 @@ I was, of course, immediately intrigued. I'm no stranger to the concept of a ser
 
 Let me show you how!
 
+![My home lab, the Castle](/img/2021/home-lab-build.jpg)
+
 # 1. Research
 
 I didn't immediately decide to invest in a custom rack-mountable server. I actually spent a few weeks just exploring the various things people were doing with their own servers. I gradually discovered a few helpful resources that were (and continue to be!) excellent sources of information:
