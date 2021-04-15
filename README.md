@@ -5,7 +5,7 @@
 New blog posts can be created with:
 
 ```
-$ hugo new posts/<post-title>.md
+$ hugo new posts/<year>/<post-title>.md
 ```
 
 A local server can be run with:
