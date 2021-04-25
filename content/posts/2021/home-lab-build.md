@@ -9,6 +9,10 @@ tags:
   - Proxmox
 ---
 
+Edit: I was invited to the inaugural episode of [SuperQuit](https://superquit.libsyn.com/) to discuss my home server build! Listen to the full episode [here](https://superquit.libsyn.com/1-did-i-say-gigs-i-meant-megs)!
+
+<iframe style="border: none; margin-bottom: var(--content-gap)" src="//html5-player.libsyn.com/embed/episode/id/18852557/height/90/theme/custom/thumbnail/yes/direction/forward/render-playlist/no/custom-color/000000/" height="90" width="100%" scrolling="no" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+
 Right around the time [Valheim](https://www.valheimgame.com/) was taking the internet (and my friend group) by storm, I stumbled across an interesting new subreddit - [r/homelab](https://reddit.com/r/homelab), a community of networking enthusiasts, server junkies, and data hoarders sharing their server racks, seeking advice, and encouraging each other along the way.
 
 I was, of course, immediately intrigued. I'm no stranger to the concept of a server, but most of my professional experience pertained to cloud-hosted machines that you never actually see. Whether it was the desire to have an always-on Valheim server or frustrations surrounding slow progress at work, I don't know. But by February 22, I had successfully purchased, assembled, and booted my first dedicated, non-ARM-based home server.

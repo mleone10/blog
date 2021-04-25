@@ -5,3 +5,8 @@ paginate = 5
 
 [params]
     author = "Mario Leone"
+
+[markup]
+    [markup.goldmark]
+        [markup.goldmark.renderer]
+            unsafe = true
