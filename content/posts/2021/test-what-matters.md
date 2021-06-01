@@ -35,7 +35,7 @@ public class FooService {
 }
 ```
 
-Basically, we have services that do some logic, call and API, and hopefully return some data. Fairly straightforward.
+Basically, we have services that do some logic, call an API, and hopefully return some data. Fairly straightforward.
 
 For the purposes of this example, let's say that `BarUtil` is a convenient utility class that does a lookup based on the value of `fizz`. The specifics don't matter, only that the call to `barUtil.bar()` has no side effects - we only care about the returned value.
 
