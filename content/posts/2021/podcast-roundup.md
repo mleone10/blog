@@ -3,7 +3,8 @@ title: "Podcast Roundup"
 summary: ""
 date: 2021-05-29T16:58:26-04:00
 draft: true
-tags: Tech
+tags:
+  - Tech
 ---
 
 When the COVID pandemic first started and working from home every day became my new reality, the necessity of staying active became far more apparent. As every March 2020 listicle will tell you, establishing a routing or ritual to help delineate between work and play was essential. For me, that meant adopting a new habit - long walks immediately after closing my laptop and calling my workday "done".
