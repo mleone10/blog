@@ -16,7 +16,7 @@ jobs:
       - name: Install Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.74.2'
+          hugo-version: "0.74.2"
       - name: Build blog
         run: hugo --minify
       - name: Deploy page
@@ -27,4 +27,4 @@ jobs:
           git config --local user.name "mleone10"
           git add -A
           git commit -m "Updating site"
-          git push -f "https://${{ env.GITHUB_ACTOR }}:${{ secrets.GITHUB_TOKEN }}@github.com/mleone10/marioleone.me.git" HEAD:gh-pages
+          git push -f "https://${{ env.GITHUB_ACTOR }}:${{ secrets.GITHUB_TOKEN }}@github.com/mleone10/blog.git" HEAD:gh-pages
