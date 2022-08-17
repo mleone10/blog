@@ -7,7 +7,7 @@ type: "page"
 
 ### Hello!
 
-I'm Mario! I am a software engineer specializing in cloud-native applications, real-time Java APIs, and clean code practices. I currently work at Capital One in McLean, VA as a backend engineer on our consumer credit monitoring tool, [CreditWise](https://creditwise.capitalone.com). On the side, I'm slightly obsessed with the [Go](https://golang.com/) programming language and serverless design.
+I'm Mario! I am a software engineer with a passion for simplicity, cloud-native applications, and organization. I currently work at Capital One in McLean, VA as a backend tech lead and engineering manager on our consumer credit monitoring tool, [CreditWise](https://creditwise.capitalone.com). On the side, I'm a big fan of the [Go](https://golang.com/) programming language and serverless designs.
 
 When I'm not at work, I pursue a wide array of activities such as D&D, running, and acting with and serving as treasurer of [The Arlington Players](https://thearlingtonplayers.org/)).
 
