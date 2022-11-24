@@ -11,6 +11,6 @@ I'm Mario! I am a software engineer with a passion for simplicity, cloud-native 
 
 When I'm not at work, I pursue a wide array of activities such as D&D, running, and acting with and serving as treasurer of [The Arlington Players](https://thearlingtonplayers.org/)).
 
-Find me on [GitHub](https://github.com/mleone10), [LinkedIn](https://linkedin.com/in/mleone5244), or [Twitter](https://twitter.com/mleone5244).
+Find me on [GitHub](https://github.com/mleone10), [LinkedIn](https://linkedin.com/in/mleone5244), [Twitter](https://twitter.com/mleone5244), or {{< relme Mastodon "https://hachyderm.io/@mleone" >}}.
 
 ![](./profilePic.jpeg#about)
