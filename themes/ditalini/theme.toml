@@ -1,0 +1,12 @@
+name = "Ditalini"
+license = "MIT"
+licenselink = "https://github.com/mleone10/blog/blob/master/LICENSE"
+description = "A versatile Hugo theme for soups, salads, and chunky sauces."
+homepage = "mleone.dev"
+tags = []
+features = []
+min_version = "0.41.0"
+
+[author]
+  name = "Mario Leone"
+  homepage = "mleone.dev"

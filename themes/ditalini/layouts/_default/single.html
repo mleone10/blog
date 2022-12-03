@@ -1,0 +1,21 @@
+{{ define "main" }}
+<article>
+    <header>
+        <h1>{{ .Title }}</h1>
+        <div>
+            {{- if or .Params.author .Site.Params.author }}
+            {{- .Params.author | default .Site.Params.author }} · {{ end }}
+            {{- .Date.Format "January 2, 2006" -}}
+        </div>
+        {{ if .Params.tags }}
+        <ul>
+            {{- range .Params.tags }}
+            {{- $href := print (absURL "tags/") (urlize .) }}
+            <li><a href="{{ $href }}">{{ . }}</a></li>
+            {{- end }}
+        </ul>
+        {{ end }}
+    </header>
+    <div>{{ .Content }}</div>
+</article>
+{{ end }}
