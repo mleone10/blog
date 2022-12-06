@@ -20,6 +20,9 @@
                     <a href="{{ .URL }}">{{ .Title }}</a>
                 </li>
                 {{ end }}
+                <li>
+                    <a href="{{ "" | absURL }}/tags/">Tags</a>
+                </li>
             </ul>
         </nav>
         {{- block "main" . }}{{- end }}

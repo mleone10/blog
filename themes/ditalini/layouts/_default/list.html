@@ -2,7 +2,7 @@
 <h1>{{ .Title }}</h1>
 {{- $paginator := .Paginate (where .RegularPages ".Params.type" "!=" "page") }}
 {{- range $index, $page := $paginator.Pages }}
-<article>
+<article class="list">
     <a href="{{ .Permalink }}">
         <header>
             <h2>{{ .Title }}</h2>
