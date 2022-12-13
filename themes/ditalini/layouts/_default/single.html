@@ -1,21 +1,21 @@
 {{ define "main" }}
-<article class="single">
-    <header>
-        <h1>{{ .Title }}</h1>
-        <div>
-            {{- if or .Params.author .Site.Params.author }}
-            {{- .Params.author | default .Site.Params.author }} · {{ end }}
-            {{- .Date.Format "January 2, 2006" -}}
-        </div>
-        {{ if .Params.tags }}
-        <ul>
-            {{- range .Params.tags }}
+<main class="single">
+    <article>
+        <header>
+            <h1>{{ .Title }}</h1>
+            <div>
+                {{- if or .Params.author .Site.Params.author }}
+                {{- .Params.author | default .Site.Params.author }} · {{ end }}
+                {{- .Date.Format "January 2, 2006" -}}
+            </div>
+            {{ if .Params.tags }}
+            {{- range $i, $tag := .Params.tags }}
             {{- $href := print (absURL "tags/") (urlize .) }}
-            <li><a href="{{ $href }}">{{ . }}</a></li>
+            {{ if $i }}, {{end}}<a href="{{ $href }}">{{ $tag }}</a>
             {{- end }}
-        </ul>
-        {{ end }}
-    </header>
-    <div>{{ .Content }}</div>
-</article>
+            {{ end }}
+        </header>
+        <div>{{ .Content }}</div>
+    </article>
+</main>
 {{ end }}
