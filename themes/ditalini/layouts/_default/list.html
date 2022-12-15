@@ -1,19 +1,5 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
-{{- $paginator := .Paginate (where .RegularPages ".Params.type" "!=" "page") }}
-{{- range $index, $page := $paginator.Pages }}
-<article class="list">
-    <a href="{{ .Permalink }}">
-        <header>
-            <h2>{{ .Title }}</h2>
-        </header>
-    </a>
-    <section>
-        <p>{{ .Summary | plainify | htmlUnescape }}</p>
-    </section>
-    <footer>
-        <time>{{ .Date.Format "January 2, 2006" }}</time>
-    </footer>
-</article>
-{{- end }}
+<main class="list">
+    <h2>{{ .Title }}</h2>
+</main>
 {{ end }}

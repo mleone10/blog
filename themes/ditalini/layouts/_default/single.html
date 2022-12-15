@@ -1,21 +1,22 @@
 {{ define "main" }}
-<main class="single">
-    <article>
-        <header>
-            <h1>{{ .Title }}</h1>
-            <div>
-                {{- if or .Params.author .Site.Params.author }}
-                {{- .Params.author | default .Site.Params.author }} · {{ end }}
-                {{- .Date.Format "January 2, 2006" -}}
-            </div>
-            {{ if .Params.tags }}
-            {{- range $i, $tag := .Params.tags }}
-            {{- $href := print (absURL "tags/") (urlize .) }}
-            {{ if $i }}, {{end}}<a href="{{ $href }}">{{ $tag }}</a>
-            {{- end }}
-            {{ end }}
-        </header>
-        <div>{{ .Content }}</div>
-    </article>
-</main>
+<article>
+  <header>
+    <h2>{{ .Title }}</h2>
+    <div class="byline">
+      {{- if or .Params.author .Site.Params.author }}
+      {{- .Params.author | default .Site.Params.author }}
+      {{ end }}
+      {{ if .Params.Date }}
+      &middot; {{- .Date.Format "January 2, 2006" -}}
+      {{ end }}
+    </div>
+    {{ if .Params.tags }}
+    {{- range $i, $tag := .Params.tags }}
+    {{- $href := print (absURL "tags/") (urlize .) }}
+    {{ if $i }}, {{end}}<a href="{{ $href }}">{{ $tag }}</a>
+    {{- end }}
+    {{ end }}
+  </header>
+  <div>{{ .Content }}</div>
+</article>
 {{ end }}

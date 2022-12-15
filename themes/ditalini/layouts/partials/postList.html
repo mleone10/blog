@@ -1,0 +1,16 @@
+{{ define "postList" }}
+<ul class="posts">
+  {{ range $index, $post := first 10 .Site.RegularPages }}
+  <li>
+    {{/* Prepend a horizontal line if not the first item */}}
+    {{ if $index }}
+    <hr />
+    {{ end }}
+
+    <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+    <time>{{ .Date.Format "02 Jan 06" }}</time>
+    <p>{{ .Summary | plainify | htmlUnescape }}</p>
+  </li>
+  {{ end }}
+</ul>
+{{ end }}
