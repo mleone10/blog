@@ -30,9 +30,19 @@ nav>ul {
   list-style: none;
 }
 
+nav a {
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
 main {
   flex-grow: 1;
   margin-inline: 1rem;
+  max-width: 70%;
+  margin: auto;
 }
 
 footer {
@@ -51,11 +61,11 @@ footer a {
 
 a {
   color: var(--clr-text);
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 article header h2 {
