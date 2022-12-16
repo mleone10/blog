@@ -2,9 +2,9 @@
 @import url(postList.css);
 
 html {
-  --clr-background: #fffbf4;
+  --clr-background: #ffffff;
   --clr-text: #000000;
-  --clr-accent-1-dark: #47562c;
+  --clr-accent-1-dark: #40541b;
   --dim-mobile-max-width: 0.95;
   --dim-screen-threshold: 1000px;
 }
