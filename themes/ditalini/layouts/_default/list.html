@@ -1,5 +1,4 @@
 {{ define "main" }}
-<main class="list">
-    <h2>{{ .Title }}</h2>
-</main>
+<h2>{{ .Title }}</h2>
+{{ block "postList" . }}{{ end }}
 {{ end }}
