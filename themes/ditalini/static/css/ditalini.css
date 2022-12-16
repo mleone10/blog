@@ -1,7 +1,11 @@
+@import url(about.css);
+
 html {
-  --clr-background: #FFF8EB;
-  --clr-text: #171B0E;
-  --clr-accent-1-dark: #1b1f14;
+  --clr-background: #fffbf4;
+  --clr-text: #000000;
+  --clr-accent-1-dark: #47562c;
+  --dim-mobile-max-width: 0.95;
+  --dim-screen-threshold: 1000px;
 }
 
 body {
@@ -11,10 +15,6 @@ body {
   min-height: 100vh;
   font-family: 'Open Sans', sans-serif;
   background-color: var(--clr-background);
-}
-
-.fullWidth {
-  max-width: 100%;
 }
 
 nav>h1 {
@@ -41,7 +41,7 @@ nav a:hover {
 main {
   flex-grow: 1;
   margin-inline: 1rem;
-  max-width: 70%;
+  max-width: calc(100% * var(--dim-mobile-max-width));
   margin: auto;
 }
 
@@ -72,6 +72,16 @@ article header h2 {
   margin-bottom: 0.5rem;
 }
 
+.fullWidth {
+  max-width: 100%;
+}
+
 .byline {
   opacity: 0.75
+}
+
+@media screen and (min-width: 1000px) {
+  main {
+    max-width: calc(var(--dim-screen-threshold) * var(--dim-mobile-max-width));
+  }
 }
