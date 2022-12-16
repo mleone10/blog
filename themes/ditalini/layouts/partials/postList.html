@@ -1,6 +1,7 @@
 {{ define "postList" }}
-<ul class="posts">
-  {{ range $index, $post := first 10 .Site.RegularPages }}
+{{ $paginator := .Paginate .Site.RegularPages }}
+<ul class="postList">
+  {{ range $index, $post := $paginator.Pages }}
   <li>
     {{/* Prepend a horizontal line if not the first item */}}
     {{ if $index }}
@@ -8,9 +9,13 @@
     {{ end }}
 
     <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-    <time>{{ .Date.Format "02 Jan 06" }}</time>
+    <time class="byline">{{ .Date.Format "02 Jan 06" }}</time>
     <p>{{ .Summary | plainify | htmlUnescape }}</p>
   </li>
   {{ end }}
+  <nav>
+    {{ if $paginator.HasNext }}<a href={{$paginator.Next.URL}} class="next">&larr; Older Posts</a>{{ end }}
+    {{ if $paginator.HasPrev }}<a href={{$paginator.Prev.URL}} class="prev">Newer Posts &rarr;</a>{{ end }}
+  </nav>
 </ul>
 {{ end }}
