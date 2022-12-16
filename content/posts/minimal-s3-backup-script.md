@@ -7,7 +7,7 @@ tags:
   - Home Lab
 ---
 
-[I built a home lab]({{< ref "/posts/2021/home-lab-build.md" >}})! And I installed Factorio on it for my friends! More on that process later, but suffice to say that, very quickly, the desire to back up the world automatically arose among the players. Backup solutions for home labs range from RAID arrays (which, admittedly, [are not backups](https://blog.storagecraft.com/5-reasons-raid-not-backup/)) to external, on-site NAS appliances to cloud-hosted off-site services.
+[I built a home lab]({{< ref "/posts/home-lab-build.md" >}})! And I installed Factorio on it for my friends! More on that process later, but suffice to say that, very quickly, the desire to back up the world automatically arose among the players. Backup solutions for home labs range from RAID arrays (which, admittedly, [are not backups](https://blog.storagecraft.com/5-reasons-raid-not-backup/)) to external, on-site NAS appliances to cloud-hosted off-site services.
 
 For now though, I just needed a simple, cheap, and effective backup solution that would ensure that, if a hard drive died, the Factorio world that my friends had sunk many hours into would persist.
 
@@ -52,5 +52,5 @@ As you can see, some common command line tricks allow us to create a tiny, light
 
 To see how I use this backup script in my home lab, check out [my lab's Ansible playbook on GitHub](https://github.com/mleone10/home-lab-automation/blob/master/roles/common/templates/backup.j2). Also, keep an eye out for more posts about my home lab adventures in the future.
 
-Until next time,  
+Until next time,
 \- Mario
