@@ -3,17 +3,16 @@
   <header>
     <h2>{{ .Title }}</h2>
     <span class="byline">
-      {{- if or .Params.author .Site.Params.author }}
-      {{- .Params.author | default .Site.Params.author }}
+      {{ if or .Params.author .Site.Params.author }}
+      {{ .Params.author | default .Site.Params.author }}
       {{ end }}
       {{ if .Params.Date }}
-      &middot;&nbsp;{{- .Date.Format "January 2, 2006" -}}
+      &middot;&nbsp;{{ .Date.Format "January 2, 2006" -}}
       {{ end }}
       {{ if .Params.tags }}
       &middot;
-      {{- range $i, $tag := .Params.tags }}
-      {{- $href := print (absURL "tags/") (urlize .) }}
-      {{ if $i }}, {{end}}<a href="{{ $href }}">{{ $tag }}</a>
+      {{ range $i, $tag := .GetTerms "tags" }}
+      {{- if $i }}, {{ end }}<a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
       {{- end }}
       {{ end }}
     </span>
