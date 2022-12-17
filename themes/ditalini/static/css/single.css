@@ -1,7 +1,11 @@
-article.single code {
+article.single p>code {
   background-color: #80808080;
   border-radius: 0.2rem;
   padding: 0.2rem;
+}
+
+article.single pre {
+  overflow-x: scroll;
 }
 
 article.single blockquote {

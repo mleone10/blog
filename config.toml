@@ -7,8 +7,3 @@ paginate = 4
 [params]
     author = "Mario Leone"
     profilePic = "profilePic.jpeg"
-
-[markup]
-    [markup.goldmark]
-        [markup.goldmark.renderer]
-            unsafe = true

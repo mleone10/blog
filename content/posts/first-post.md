@@ -44,7 +44,7 @@ func main() {
 ```
 ```go
 func test() {
-    fmt.DoTheTHing()
+    fmt.DoTheThing()
 }
 ```
 
