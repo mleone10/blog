@@ -23,7 +23,7 @@ tags:
 
 This is normal text
 
-This text has a `backtick quote` in it.
+This text has a `backtick quote` in it.  **And `this one` is nested.**
 
 Here's a block quote:
 > If at first you don't succeed, don't take up skydiving.
