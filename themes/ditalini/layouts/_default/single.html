@@ -2,20 +2,21 @@
 <article>
   <header>
     <h2>{{ .Title }}</h2>
-    <div class="byline">
+    <span class="byline">
       {{- if or .Params.author .Site.Params.author }}
       {{- .Params.author | default .Site.Params.author }}
       {{ end }}
       {{ if .Params.Date }}
-      &middot; {{- .Date.Format "January 2, 2006" -}}
+      &middot;&nbsp;{{- .Date.Format "January 2, 2006" -}}
       {{ end }}
-    </div>
-    {{ if .Params.tags }}
-    {{- range $i, $tag := .Params.tags }}
-    {{- $href := print (absURL "tags/") (urlize .) }}
-    {{ if $i }}, {{end}}<a href="{{ $href }}">{{ $tag }}</a>
-    {{- end }}
-    {{ end }}
+      {{ if .Params.tags }}
+      &middot;
+      {{- range $i, $tag := .Params.tags }}
+      {{- $href := print (absURL "tags/") (urlize .) }}
+      {{ if $i }}, {{end}}<a href="{{ $href }}">{{ $tag }}</a>
+      {{- end }}
+      {{ end }}
+    </span>
   </header>
   <div>{{ .Content }}</div>
 </article>
