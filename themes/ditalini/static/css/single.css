@@ -11,6 +11,7 @@ article.single pre {
 }
 
 article.single pre code {
+  background-color: initial;
   padding: 0;
 }
 
