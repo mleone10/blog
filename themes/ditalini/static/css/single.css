@@ -1,0 +1,25 @@
+article.single code {
+  background-color: #80808080;
+  border-radius: 0.2rem;
+  padding: 0.2rem;
+}
+
+article.single pre {
+  line-height: 1.2rem;
+  overflow-x: scroll;
+  padding: 0.5rem;
+}
+
+article.single pre code {
+  padding: 0;
+}
+
+article.single blockquote {
+  border-left: 3px solid #80808080;
+  margin: 0 0 0 1rem;
+  padding-left: 1rem;
+}
+
+article.single hr {
+  width: 70%;
+}

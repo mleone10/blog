@@ -4,7 +4,7 @@ summary: "What makes a good unit test?"
 date: 2021-06-01T15:22:03-04:00
 tags:
   - Tech
-  - Testing
+  - Software Craftsmanship
 ---
 
 I write a decent amount of Java at work. A lot of the code we write looks something like this:

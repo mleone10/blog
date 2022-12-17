@@ -5,10 +5,8 @@ date: 2021-03-30T00:17:01-04:00
 draft: true
 tags:
   - Home Lab
-  - Ansible
   - Tech
   - AWS
-  - Systemd
 ---
 
 # Motivation

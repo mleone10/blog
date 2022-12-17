@@ -6,7 +6,6 @@ tags:
   - Tech
   - Home Lab
   - Hardware
-  - Proxmox
 ---
 
 Edit: I was invited to the inaugural episode of [SuperQuit](https://superquit.libsyn.com/) to discuss my home server build! Listen to the full episode [here](https://superquit.libsyn.com/1-did-i-say-gigs-i-meant-megs)!

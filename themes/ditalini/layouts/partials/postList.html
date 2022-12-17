@@ -1,0 +1,20 @@
+{{ define "postList" }}
+<ul class="postList">
+  {{ range $index, $post := .Paginator.Pages }}
+  <li>
+    {{/* Prepend a horizontal line if not the first item */}}
+    {{ if $index }}
+    <hr />
+    {{ end }}
+
+    <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+    <time class="byline">{{ .Date.Format "02 Jan 06" }}</time>
+    <p>{{ .Summary | plainify | htmlUnescape }}</p>
+  </li>
+  {{ end }}
+  <nav>
+    {{ if .Paginator.HasNext }}<a href={{ .Paginator.Next.URL }} class="next">&larr; Older Posts</a>{{ end }}
+    {{ if .Paginator.HasPrev }}<a href={{ .Paginator.Prev.URL }} class="prev">Newer Posts &rarr;</a>{{ end }}
+  </nav>
+</ul>
+{{ end }}

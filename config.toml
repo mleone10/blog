@@ -1,12 +1,9 @@
 baseURL = "https://mleone.dev"
+theme = "ditalini"
 languageCode = "en-us"
 title = "Mario Leone"
-paginate = 5
+paginate = 4
 
 [params]
     author = "Mario Leone"
-
-[markup]
-    [markup.goldmark]
-        [markup.goldmark.renderer]
-            unsafe = true
+    profilePic = "profilePic.jpeg"
