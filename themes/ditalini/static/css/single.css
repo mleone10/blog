@@ -9,3 +9,7 @@ article.single blockquote {
   margin: 0 0 0 1rem;
   padding-left: 1rem;
 }
+
+article.single hr {
+  width: 70%;
+}
