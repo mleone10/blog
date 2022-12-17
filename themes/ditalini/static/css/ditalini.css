@@ -44,6 +44,7 @@ main {
   margin-inline: 1rem;
   max-width: calc(100% * var(--dim-mobile-max-width));
   margin: auto;
+  line-height: 2rem;
 }
 
 footer {
@@ -78,7 +79,8 @@ article header h2 {
 }
 
 .byline {
-  opacity: 0.75
+  font-size: 0.8rem;
+  opacity: 0.75;
 }
 
 @media screen and (min-width: 1000px) {
