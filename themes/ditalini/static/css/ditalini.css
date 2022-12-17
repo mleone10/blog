@@ -42,7 +42,7 @@ nav a:hover {
 main {
   flex-grow: 1;
   margin-inline: 1rem;
-  max-width: calc(100% * var(--dim-mobile-max-width));
+  width: calc(100% * var(--dim-mobile-max-width));
   margin: auto;
   line-height: 2rem;
 }

@@ -1,14 +1,8 @@
 {{ define "main" }}
-<main class="terms">
-    <header>
-        <h1>{{ .Title }}</h1>
-    </header>
-    <div>
-        <ul>
-            {{ range .Site.Taxonomies.tags }}
-            <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a></li>
-            {{ end }}
-        </ul>
-    </div>
-</main>
+<h2>{{ .Title }}</h2>
+<ul>
+    {{ range .Site.Taxonomies.tags }}
+    <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a></li>
+    {{ end }}
+</ul>
 {{ end }}
