@@ -1,5 +1,6 @@
 @import url(about.css);
 @import url(postList.css);
+@import url(single.css);
 
 html {
   --clr-background: #ffffff;

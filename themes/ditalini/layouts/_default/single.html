@@ -1,5 +1,5 @@
 {{ define "main" }}
-<article>
+<article class="single">
   <header>
     <h2>{{ .Title }}</h2>
     <span class="byline">
@@ -17,6 +17,6 @@
       {{ end }}
     </span>
   </header>
-  <div>{{ .Content }}</div>
+  {{ .Content }}
 </article>
 {{ end }}
