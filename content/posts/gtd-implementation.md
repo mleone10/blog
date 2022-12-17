@@ -6,7 +6,6 @@ draft: true
 tags:
     - Productivity
     - GTD
-    - Bullet Journal
 ---
 I was introduced to David Allen's [Getting Things Done](https://gettingthingsdone.com/what-is-gtd/) in 2020, right as the COVID19 pandemic was starting.  During a 10:10 with my manager at the time, I mentioned I was trying to find a way to keep all of my sprint stories, ad hoc requests, and career development goals organized.  She was quick to advocate for GTD, and I purchased the book soon after.
 
@@ -30,5 +29,3 @@ When I first read GTD, my big takeaway was the presence of five buckets:
 * A **Waiting For** list to capture things that are stuck until someone gets back to me or a specific date arrives
 * A **Someday/Maybe** list for things I may want to do in the future
 * A **Projects** list for projects (in GTD, any goal with a definite conclusion and more than one action is a Project)
-
-
