@@ -10,17 +10,26 @@ article.single pre {
   padding: 0.5rem;
 }
 
+article.single .highlight {
+  margin: 1rem 0;
+}
+
+article.single .highlight pre {
+  margin: 0;
+}
+
 article.single pre code {
   background-color: initial;
   padding: 0;
 }
 
 article.single blockquote {
-  border-left: 3px solid #80808080;
+  border-left: 3px solid var(--clr-accent-1-dark);
   margin: 0 0 0 1rem;
   padding-left: 1rem;
 }
 
 article.single hr {
   width: 70%;
+  border: 2px solid var(--clr-accent-1-dark);
 }
