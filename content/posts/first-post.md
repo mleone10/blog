@@ -35,7 +35,10 @@ Horizontal Lines:
 [Links](https://www.google.com) work
 
 Now a block of code:
-```go
+```go {linenos=table}
+// Notice that this block has line numbers.
+package main
+
 import fmt
 
 func main() {
@@ -43,6 +46,8 @@ func main() {
 }
 ```
 ```go
+package foo
+
 func test() {
     fmt.DoTheThing()
 }
