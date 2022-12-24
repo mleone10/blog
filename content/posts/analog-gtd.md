@@ -2,6 +2,7 @@
 title: "Analog GTD"
 summary: "How I use GTD in a simple notebook."
 date: 2022-09-21T23:33:10-04:00
+toc: true
 tags:
     - Productivity
     - GTD
