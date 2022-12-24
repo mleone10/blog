@@ -24,7 +24,7 @@ nav>h1 {
   font-size: 2rem;
 }
 
-nav>ul {
+nav.mainNav>ul {
   display: flex;
   justify-content: space-evenly;
   font-size: 1.25rem;
@@ -32,11 +32,11 @@ nav>ul {
   list-style: none;
 }
 
-nav a {
+nav.mainNav a {
   text-decoration: none;
 }
 
-nav a:hover {
+nav.mainNav a:hover {
   text-decoration: underline;
 }
 

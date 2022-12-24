@@ -1,0 +1,8 @@
+{{ define "tableOfContents" }}
+{{ if .Params.toc }}
+<aside class="tableOfContents boxed">
+  <h3>Contents</h3>
+  {{ .TableOfContents }}
+</aside>
+{{ end }}
+{{ end }}

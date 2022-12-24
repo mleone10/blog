@@ -33,3 +33,18 @@ article.single hr {
   width: 70%;
   border: 2px solid var(--clr-accent-1-dark);
 }
+
+aside.tableOfContents h3 {
+  margin: 0.5rem 0;
+}
+
+.boxed {
+  border: 2px solid var(--clr-accent-1-dark);
+  padding: 0rem 1rem;
+}
+
+@media screen and (min-width: 400px) {
+  .boxed {
+    max-width: 400px;
+  }
+}

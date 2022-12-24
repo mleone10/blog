@@ -3,6 +3,7 @@ title: "First Post"
 summary: This is just an example post to demonstrate various Markdown features that I have at my disposal.
 date: 2020-07-21T20:49:39-04:00
 draft: true
+toc: true
 tags:
     - Blogging
 ---

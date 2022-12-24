@@ -17,6 +17,7 @@
       {{ end }}
     </span>
   </header>
+  {{ block "tableOfContents" . }}{{ end }}
   {{ .Content }}
 </article>
 {{ end }}
