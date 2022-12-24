@@ -35,7 +35,11 @@ article.single hr {
 }
 
 aside.tableOfContents h3 {
-  margin: 0.5rem 0;
+  margin: 0.5rem 0 0 0;
+}
+
+aside.tableOfContents ul {
+  margin-top: 0rem;
 }
 
 .boxed {
