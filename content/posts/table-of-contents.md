@@ -2,7 +2,6 @@
 title: "Using Hugo's Built-In Table of Contents"
 summary: "Leveraging a standard Hugo feature for more navigable content."
 date: 2022-12-24T22:44:45-05:00
-draft: true
 toc: true
 tags:
   - Blogging
