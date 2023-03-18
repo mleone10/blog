@@ -8,7 +8,7 @@ tags:
     - GTD
 ---
 
-I've experimented with a lot of different task-management systems in my life.  My current personal productivity system is a collection of tools and practices carefully honed to help me succeed in every area of my life. 
+I've experimented with a lot of different task-management systems in my life.  My current personal productivity system is a collection of tools and practices carefully honed to help me keep track of everything, and most of it is contained in a single notebook.
 
 ## Tools
 ### The Notebook
@@ -118,5 +118,12 @@ So that's my system in a nutshell!  It's certainly evolved over the years, morph
 * I want to better manage my personal **someday/maybe** list.  On the one hand, I could easily just add this to my notebook.  But if items stay on the list for longer than I use a given notebook, I'd have to copy them to the next one.  Then again, maybe that's a good thing...
 
 Despite those shortcomings, the beauty of a notebook is that it encourages iteration.  Maybe next month I'll try adopting a new layout, or I'll tweak how I record a given month's events.  Maybe I'll experiment with a Weekly Log.  Who knows!  The notebook is an artifact of its time, changing to suit my needs as they grow and change.
+
+## Update 3/17/2023
+In the spirit of continuous improvement, I've actually changed my system a bit since writing this post!  I just started a new notebook and opted not to include miniature calendars in my Future Log.  I'll rely fully on Google Calendar for my date-tracking needs.  I've also moved my various Project Lists to dedicated pages, as I realized I was hindering my project tracking by trying to limit the list to a few cramped lines.
+
+I've also eliminated the four files I kept on my work laptop Desktop.  Instead, I'm going to rely more on my notebook for work tracking.
+
+Lastly, I'm experimenting with keeping Someday/Maybe lists in Google Drive.  Some of the items on these lists are truly ambiguous, and I'd rather not have to copy them across notebooks.
 
 {{< signature >}}
