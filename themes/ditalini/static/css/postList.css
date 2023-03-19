@@ -24,3 +24,7 @@ ul.postList nav a.next {
 ul.postList nav a.prev {
   float: right;
 }
+
+ul.postList li p:last-of-type {
+  margin-bottom: 0rem;
+}

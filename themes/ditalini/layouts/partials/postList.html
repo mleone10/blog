@@ -2,13 +2,11 @@
 <ul class="postList">
   {{ range $index, $post := .Paginator.Pages }}
   <li>
-    {{/* Prepend a horizontal line if not the first item */}}
-    {{ if $index }}
-    <hr />
-    {{ end }}
-
+    {{ if eq .Type "notes" }}
+    {{ .Content }}
+    {{ else }}
     <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-    {{ if eq .Type "notes" }}<p>{{ .Content }}</p>{{ else }}<p>{{ .Summary }}</p>{{ end }}
+    {{ end }}
     <time class="byline">{{ .Date.Format "02 Jan 06" }}</time>
   </li>
   {{ end }}
