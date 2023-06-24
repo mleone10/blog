@@ -6,4 +6,4 @@ paginate = 10
 
 [params]
     author = "Mario Leone"
-    profilePic = "profilePic.jpeg"
+    profilePic = "/profilePic.jpeg"
