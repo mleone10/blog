@@ -16,7 +16,7 @@
       {{ if .Params.tags }}
       &middot;
       {{ range $i, $tag := .GetTerms "tags" }}
-      {{- if $i }}, {{ end }}<a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+      {{- if $i }}, {{ end }}<a class="p-category" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
       {{- end }}
       {{ end }}
     </span>
