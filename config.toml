@@ -7,3 +7,4 @@ paginate = 10
 [params]
     author = "Mario Leone"
     profilePic = "/profilePic.jpeg"
+    bio = "Hi, I'm Mario! Software engineering manager, actor, DIY-enthusiast. Trying new things every day and living life to the fullest!"

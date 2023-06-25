@@ -49,13 +49,25 @@ main {
 }
 
 footer {
+  display: flex;
   justify-self: flex-end;
-  padding-top: 0.5rem;
-  padding-bottom: 0.75rem;
+  padding: 0 0.5rem;
+  align-items: center;
+  justify-content: center;
   background-color: var(--clr-accent-1-dark);
   color: var(--clr-background);
   text-align: center;
   font-size: 0.8rem;
+}
+
+footer img {
+  width: 25vw;
+  max-width: 200px;
+}
+
+footer span {
+  margin: 0 0.5rem;
+  max-width: 400px;
 }
 
 footer a {
@@ -89,4 +101,6 @@ article header h2 {
     width: 100%;
     max-width: calc(var(--dim-screen-threshold) * var(--dim-mobile-max-width));
   }
+
+  footer {}
 }
