@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   {{ $title := print .Site.Title " | " .Title }}
   {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
   <title>{{ $title }}</title>
@@ -38,7 +38,10 @@
     <span>
       <p class="p-note">{{ .Site.Params.bio }}</p>
       <p>&copy; {{ now.Year }} <a class="p-name u-url u-uid" href="{{ "" | absURL }}">{{ .Site.Params.author }}</a> <a
-          class="u-url" rel="me" href="https://github.com/mleone10"><i class="fa fa-github"></i></a></p>
+          class="u-url" rel="me" href="https://github.com/mleone10"><i class="fa-brands fa-github"></i></a> <a
+          class="u-url" rel="me" href="https://linkedin.com/in/mleone5244"><i class="fa-brands fa-linkedin"></i></a>
+        <a class="u-url" rel="me" href="https://hachyderm.io/@mleone"><i class="fa-brands fa-mastodon"></i></a>
+      </p>
     </span>
   </footer>
 </body>
