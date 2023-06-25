@@ -37,9 +37,12 @@
     <img class="u-photo" src="/profilePic.jpeg" />
     <span>
       <p class="p-note">{{ .Site.Params.bio }}</p>
-      <p>&copy; {{ now.Year }} <a class="p-name u-url u-uid" href="{{ "" | absURL }}">{{ .Site.Params.author }}</a> <a
-          class="u-url" rel="me" href="https://github.com/mleone10"><i class="fa-brands fa-github"></i></a> <a
-          class="u-url" rel="me" href="https://linkedin.com/in/mleone5244"><i class="fa-brands fa-linkedin"></i></a>
+      <p>
+        &copy;
+        {{ now.Year }}
+        <a class="p-name u-url u-uid" href="{{ "" | absURL }}">{{ .Site.Params.author}}</a>
+        <a class="u-url" rel="me" href="https://github.com/mleone10"><i class="fa-brands fa-github"></i></a>
+        <a class="u-url" rel="me" href="https://linkedin.com/in/mleone5244"><i class="fa-brands fa-linkedin"></i></a>
         <a class="u-url" rel="me" href="https://hachyderm.io/@mleone"><i class="fa-brands fa-mastodon"></i></a>
       </p>
     </span>
