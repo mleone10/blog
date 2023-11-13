@@ -1,0 +1,106 @@
+@import url(about.css);
+@import url(postList.css);
+@import url(single.css);
+
+html {
+  --clr-background: #ffffff;
+  --clr-text: #000000;
+  --clr-accent-1-dark: #40541b;
+  --dim-mobile-max-width: 0.95;
+  --dim-screen-threshold: 1000px;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--clr-background);
+}
+
+nav>h1 {
+  text-align: center;
+  font-size: 2rem;
+}
+
+nav.mainNav>ul {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+nav.mainNav a {
+  text-decoration: none;
+}
+
+nav.mainNav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  flex-grow: 1;
+  margin-inline: 1rem;
+  width: calc(100% * var(--dim-mobile-max-width));
+  margin: auto;
+  line-height: 2rem;
+}
+
+footer {
+  display: flex;
+  justify-self: flex-end;
+  padding: 0 0.5rem;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--clr-accent-1-dark);
+  color: var(--clr-background);
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+footer img {
+  width: 25vw;
+  max-width: 200px;
+}
+
+footer span {
+  margin: 0 0.5rem;
+  max-width: 400px;
+}
+
+footer a {
+  color: var(--clr-background);
+}
+
+a {
+  color: var(--clr-text);
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+article header h2 {
+  margin-bottom: 0.5rem;
+}
+
+.fullWidth {
+  max-width: 100%;
+}
+
+.byline {
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+@media screen and (min-width: 1000px) {
+  main {
+    width: 100%;
+    max-width: calc(var(--dim-screen-threshold) * var(--dim-mobile-max-width));
+  }
+
+  footer {}
+}

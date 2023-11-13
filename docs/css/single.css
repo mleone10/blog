@@ -1,0 +1,54 @@
+article.single code {
+  background-color: #ababab80;
+  border-radius: 0.2rem;
+  padding: 0.2rem;
+}
+
+article.single pre {
+  line-height: 1.2rem;
+  overflow-x: scroll;
+  padding: 0.5rem;
+}
+
+article.single .highlight {
+  margin: 1rem 0;
+}
+
+article.single .highlight pre {
+  margin: 0;
+}
+
+article.single pre code {
+  background-color: initial;
+  padding: 0;
+}
+
+article.single blockquote {
+  border-left: 3px solid var(--clr-accent-1-dark);
+  margin: 0 0 0 1rem;
+  padding-left: 1rem;
+}
+
+article.single hr {
+  width: 70%;
+  border: 2px solid var(--clr-accent-1-dark);
+}
+
+aside.tableOfContents h3 {
+  margin: 0.5rem 0 0 0;
+}
+
+aside.tableOfContents ul {
+  margin-top: 0rem;
+}
+
+.boxed {
+  border: 2px solid var(--clr-accent-1-dark);
+  padding: 0rem 1rem;
+}
+
+@media screen and (min-width: 400px) {
+  .boxed {
+    max-width: 400px;
+  }
+}

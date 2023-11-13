@@ -1,0 +1,30 @@
+ul.postList {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 8rem;
+}
+
+ul.postList h3 {
+  margin-bottom: 0rem;
+}
+
+ul.postList hr {
+  width: 80%;
+  margin: 2rem auto;
+}
+
+ul.postList nav a {
+  font-weight: bold;
+}
+
+ul.postList nav a.next {
+  float: left;
+}
+
+ul.postList nav a.prev {
+  float: right;
+}
+
+ul.postList li p:last-of-type {
+  margin-bottom: 0rem;
+}

@@ -1,0 +1,49 @@
+<!doctype html><html><head><link rel=stylesheet href=/css/ditalini.css><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css><title>Mario Leone | Using Hugo's Built-In Table of Contents</title></head><body><nav class="mainNav fullWidth"><h1><a href=https://mleone.dev>Mario Leone</a></h1><ul><li><a href=/about/>About Me</a></li><li><a href=https://mleone.dev/tags/>Tags</a></li></ul></nav><main><article class="single h-entry"><header><h2><a class="p-name u-url" href=https://mleone.dev/posts/table-of-contents/>Using Hugo's Built-In Table of Contents</a></h2><span class=byline><a class="p-author h-card" href=https://mleone.dev>Mario Leone</a>
+&#183;&nbsp;<time class=dt-published datetime=2022-12-24T22:44:45-0500>
+December 24, 2022</time>
+&#183;
+<a class=p-category href=https://mleone.dev/tags/blogging/>Blogging</a>, <a class=p-category href=https://mleone.dev/tags/software/>Software</a>, <a class=p-category href=https://mleone.dev/tags/hugo/>Hugo</a></span></header><aside class="tableOfContents boxed"><h3>Contents</h3><nav id=TableOfContents><ul><li><a href=#expected-result>Expected Result</a></li><li><a href=#customization>Customization</a></li><li><a href=#integration>Integration</a></li></ul></nav></aside><div class=e-content><p>I wanted to find a way to add a table of contents to certain blog posts. Luckily, Hugo provides this feature out of the box. All it takes is some simple config!</p><h2 id=expected-result>Expected Result</h2><p>Before we get into how I&rsquo;m generating the table of contents above, let&rsquo;s first look at what we can hope to achieve. Per <a href=https://gohugo.io/content-management/toc/>the documentation</a>, Hugo will automatically generate a table of contents from a page&rsquo;s Markdown headings. This particular post contains several <code>h2</code> and <code>h3</code> elements which are parsed into the outline beneath the this post&rsquo;s title.</p><h2 id=customization>Customization</h2><p>Hugo&rsquo;s table of contents is an unordered, bulleted list by default. We can change this to an ordered list if we prefer by setting <code>markup.tableOfContents.ordered</code> to <code>true</code> in our site parameters.</p><p>Hugo will include <code>h2</code> and <code>h3</code> elements by default. We can modify this by changing two properties:</p><ul><li><code>markup.tableOfContents.startLevel</code> (default <code>2</code>) to set the highest level of heading rendered</li><li><code>markup.tableOfContents.endLevel</code> (default <code>3</code>) to set the lowest</li></ul><p>In the rendered page, the table is a <code>nav</code> block with <code>id="TableOfContents</code> containing a series of nested <code>ul</code> blocks. We can use this to our advantage to style the output as we see fit!</p><h2 id=integration>Integration</h2><p>So how do we go about adding this to our blog posts? Individual posts are most likely rendered using the template file at <code>layouts/_defaults/single.html</code>. Mine looks like this:</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style=display:block;width:100%;background-color:#3c3d38><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span></span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>{{ define &#34;main&#34; }}
+&lt;<span style=color:#f92672>article</span> <span style=color:#a6e22e>class</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;single&#34;</span>&gt;
+  &lt;<span style=color:#f92672>header</span>&gt;
+    &lt;<span style=color:#f92672>h2</span>&gt;{{ .Title }}&lt;/<span style=color:#f92672>h2</span>&gt;
+    &lt;<span style=color:#f92672>span</span> <span style=color:#a6e22e>class</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;byline&#34;</span>&gt;
+      <span style=color:#75715e>&lt;!--  Author name, date, and relevant tag details omitted --&gt;</span>
+    &lt;/<span style=color:#f92672>span</span>&gt;
+  &lt;/<span style=color:#f92672>header</span>&gt;
+<span style=display:block;width:100%;background-color:#3c3d38>  {{ block &#34;tableOfContents&#34; . }}{{ end }}
+</span>  {{ .Content }}
+&lt;/<span style=color:#f92672>article</span>&gt;
+{{ end }}
+</code></pre></td></tr></table></div></div><p>The highlighted line references a Hugo partial I created to encompass the entire Table of Contents block. I put that in <code>layouts/partials/tableOfContents.html</code>:</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>{{ define &#34;tableOfContents&#34; }}
+{{ if .Params.toc }}
+&lt;<span style=color:#f92672>aside</span> <span style=color:#a6e22e>class</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;tableOfContents boxed&#34;</span>&gt;
+  &lt;<span style=color:#f92672>h3</span>&gt;Contents&lt;/<span style=color:#f92672>h3</span>&gt;
+  {{ .TableOfContents }}
+&lt;/<span style=color:#f92672>aside</span>&gt;
+{{ end }}
+{{ end }}
+</code></pre></td></tr></table></div></div><p>The first and last lines define the partial as something other templates can import. Line 2 gives us conditional rendering - if for some reason we don&rsquo;t want a table of contents, we should be able to disable it. This conditional checks for a <code>toc: true</code> line in the post&rsquo;s front-matter. Only when it succeeds will the table be rendered.</p><p>For the actual HTML, we just wrap an <code>h3</code> header and Hugo&rsquo;s <code>.TableOfContents</code> variables in an <code>aside</code> block. Then I use a couple classes to tweak the margins.</p><p>One minor pitfall I encountered in styling the table was due to it being a <code>nav</code> element. My site&rsquo;s main navigation bar at the top of the page is also a <code>nav</code>, and my original CSS was overly broad. So the main nav-bar&rsquo;s styles were unintentionally applying to the table. I solved that by adding a <code>mainNav</code> class to the main nav-bar and changing its CSS to only apply to <code>nav</code>s with that class.</p><p>So there you have it! Painless, automatic tables of contents on future posts if I choose to enable them. As always, this blog&rsquo;s source is available on GitHub. The table of contents partial is <a href=https://github.com/mleone10/blog/blob/master/themes/ditalini/layouts/partials/tableOfContents.html>here</a>, and it&rsquo;s CSS is <a href=https://github.com/mleone10/blog/blob/master/themes/ditalini/static/css/single.css#L37>here</a>.</p><section style=float:right;margin-right:2vh><h4 style=margin-bottom:0>Until next time,</h4><p style=margin-top:0;padding-left:2rem>&ndash; Mario Leone</p></section></div></article></main><footer class="fullWidth h-card"><img class=u-photo src=/profilePic.jpeg>
+<span><p class=p-note>Hi, I'm Mario! Software engineering manager, actor, DIY-enthusiast. Trying new things every day and living life to the fullest!</p><p>&copy;
+2023
+<a class="p-name u-url u-uid" href=https://mleone.dev>Mario Leone</a>
+<a class=u-url rel=me href=https://github.com/mleone10><i class="fa-brands fa-github"></i></a><a class=u-url rel=me href=https://linkedin.com/in/mleone5244><i class="fa-brands fa-linkedin"></i></a><a class=u-url rel=me href=https://hachyderm.io/@mleone><i class="fa-brands fa-mastodon"></i></a></p></span></footer></body></html>

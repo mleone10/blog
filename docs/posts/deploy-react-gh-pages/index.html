@@ -1,0 +1,69 @@
+<!doctype html><html><head><link rel=stylesheet href=/css/ditalini.css><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css><title>Mario Leone | Deploying a React App to GitHub Pages</title></head><body><nav class="mainNav fullWidth"><h1><a href=https://mleone.dev>Mario Leone</a></h1><ul><li><a href=/about/>About Me</a></li><li><a href=https://mleone.dev/tags/>Tags</a></li></ul></nav><main><article class="single h-entry"><header><h2><a class="p-name u-url" href=https://mleone.dev/posts/deploy-react-gh-pages/>Deploying a React App to GitHub Pages</a></h2><span class=byline><a class="p-author h-card" href=https://mleone.dev>Mario Leone</a>
+&#183;&nbsp;<time class=dt-published datetime=2020-08-07T22:33:41-0400>
+August 7, 2020</time>
+&#183;
+<a class=p-category href=https://mleone.dev/tags/tech/>Tech</a></span></header><div class=e-content><p><strong>Around the same time that quarantine started in earnest in March of this year, I was lucky enough to be invited to join a new Dungeons and Dragons campaign.</strong></p><p>The Dungeon Master is one I&rsquo;ve run games with before, and his adventures are always intricate webs of mystery featuring a wide array of characters. Of course, I jumped at the chance. I worked with another player to create twin Pallid Elves named Letheryl and Llyrethe and have been having a blast exploring <a href=https://dnd.wizards.com/products/wildemount>Wildemount</a> every week since.</p><p>At first, I managed Letheryl on a simple Google Doc. That gave me great portability and ease of editing, and honestly was perfectly sufficient. But soon after we started, I got that familiar urge to build something. Thus the first iteration of my character sheet webpage was born.</p><p>The first page (hosted at <a href=https://dnd.marioleone.me>dnd.marioleone.me</a>) was a single <code>index.html</code> file, plus an <code>index.css</code> file to make it prettier. I used GitHub&rsquo;s excellent hosting capability, <a href=https://pages.github.com/>GitHub Pages</a>, to expose the website to the world, and configured a Route53 rule on AWS (my domain host of choice) to direct the domain to it.</p><p>Before long though, I wanted to grow the page beyond what simple HTML would offer. At the same time, I wanted to expand my own frontend knowledge - my technical experience is almost entirely backend - and <a href=https://reactjs.org/>React</a> caught my eye. I considered Angular and Vue, but I liked React&rsquo;s focus on minimalism. In time, I got most of the quantitative parts of Letheryl&rsquo;s character sheet converted, and was ready to get the new version launched.</p><p>As a static page, there was no reason I couldn&rsquo;t continue to use GitHub Pages. However, whereas the original page was HTML that GitHub could automatically parse and deploy, the new React-based version required a build step before it could be similarly interpretted. Enter <a href=https://github.com/features/actions>GitHub Actions</a>.</p><p>GitHub Actions are GitHub&rsquo;s CI/CD automation solution. Like Jenkins or TravisCI (with which I have plenty of experience), GitHub Actions allow users to execute scripts on common triggers, like pushing to a GitHub branch or opening a pull request.</p><p>I already knew that my webpage could be built locally with the right environment configured:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ npm install
+$ npm run build
+</code></pre></div><p>I also knew that installing Node and executing NPM commands within a GitHub Actions was a common task:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#66d9ef>name</span>: Build React App
+
+<span style=color:#66d9ef>on</span>:
+  <span style=color:#66d9ef>push</span>:
+    <span style=color:#66d9ef>branches</span>: [master]
+
+<span style=color:#66d9ef>jobs</span>:
+  <span style=color:#66d9ef>build</span>:
+    <span style=color:#66d9ef>runs-on</span>: ubuntu-latest
+    <span style=color:#66d9ef>steps</span>:
+      - <span style=color:#66d9ef>name</span>: Checkout code
+        <span style=color:#66d9ef>uses</span>: actions/checkout@v2
+      - <span style=color:#66d9ef>name</span>: Install Node
+        <span style=color:#66d9ef>uses</span>: actions/setup-node@v1
+        <span style=color:#66d9ef>with</span>:
+          <span style=color:#66d9ef>node-version</span>: <span style=color:#ae81ff>12</span>
+      - <span style=color:#66d9ef>name</span>: Install Node packages
+        <span style=color:#66d9ef>run</span>: npm install
+      - <span style=color:#66d9ef>name</span>: Build page
+        <span style=color:#66d9ef>run</span>: npm run build
+</code></pre></div><p>The only unknown then was getting the built artifact (a <code>build</code> directory containing browser-compatible HTML) pushed into my repository. I chose to push it to a separate <code>gh-pages</code> branch for two reasons:</p><ul><li>I didn&rsquo;t want the build artifact in <code>master</code> branch, since it would unnecessarily add to the repo&rsquo;s size.</li><li>GitHub Actions won&rsquo;t trigger a GitHub Pages build when the action pushes to the branch which triggered the original Action. That is, GitHub (wisely) protects against recursive Action executions.</li></ul><p>So the only thing left was to create a <code>deploy</code> step in my workflow, as such:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml>- <span style=color:#66d9ef>name</span>: Deploy page
+        <span style=color:#66d9ef>run</span>: <span style=color:#e6db74>|
+</span><span style=color:#e6db74>          mv build docs</span>
+          cp CNAME docs
+          git config --local user.email <span style=color:#e6db74>&#34;${{ secrets.EMAIL }}&#34;</span>
+          git config --local user.name <span style=color:#e6db74>&#34;mleone10&#34;</span>
+          git add -A
+          git commit -m <span style=color:#e6db74>&#34;Updating site&#34;</span>
+          git push -f <span style=color:#e6db74>&#34;https://${{ env.GITHUB_ACTOR }}:${{ secrets.GITHUB_TOKEN }}@github.com/mleone10/dnd-site.git&#34;</span> HEAD:gh-pages
+</code></pre></div><p>Some explaination is in order:</p><ul><li>GitHub Pages can either read HTML from a branch&rsquo;s root or a <code>docs</code> directory, so we first rename React&rsquo;s <code>build</code> to <code>docs</code>.</li><li>Custom domains are stored using a special <code>CNAME</code> file containing the domain. This file must exist in the host directory - <code>docs</code> in my case.</li><li>Git needs to know who is pushing to the repository, so we configure the Action-specific container with my GitHub username and email. In order to keep my email address hidden, I <a href=https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets-for-a-repository>stored it as a repository secret</a>.</li><li><code>git add -A</code> stages the untracked <code>docs</code> directory, and <code>git commit ...</code> commits it.</li><li>Finally, the workflow forcibly pushes the artifact to the <code>gh-pages</code> branch. Authentication is done using two built-in environment variables to specify the user who triggered the GitHub Action (me 😀) and an Action-specific token which provides easy authentication.</li></ul><p>All together then, the following was placed within my repo&rsquo;s <code>master</code> branch at <code>.github/workflows/build.yaml</code>:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#66d9ef>name</span>: Deploy React App
+
+<span style=color:#66d9ef>on</span>:
+  <span style=color:#66d9ef>push</span>:
+    <span style=color:#66d9ef>branches</span>: [master]
+
+<span style=color:#66d9ef>jobs</span>:
+  <span style=color:#66d9ef>build</span>:
+    <span style=color:#66d9ef>runs-on</span>: ubuntu-latest
+    <span style=color:#66d9ef>steps</span>:
+      - <span style=color:#66d9ef>name</span>: Checkout code
+        <span style=color:#66d9ef>uses</span>: actions/checkout@v2
+      - <span style=color:#66d9ef>name</span>: Install Node
+        <span style=color:#66d9ef>uses</span>: actions/setup-node@v1
+        <span style=color:#66d9ef>with</span>:
+          <span style=color:#66d9ef>node-version</span>: <span style=color:#ae81ff>12</span>
+      - <span style=color:#66d9ef>name</span>: Install Node packages
+        <span style=color:#66d9ef>run</span>: npm install
+      - <span style=color:#66d9ef>name</span>: Build page
+        <span style=color:#66d9ef>run</span>: npm run build
+      - <span style=color:#66d9ef>name</span>: Deploy page
+        <span style=color:#66d9ef>run</span>: <span style=color:#e6db74>|
+</span><span style=color:#e6db74>          mv build docs</span>
+          cp CNAME docs
+          git config --local user.email <span style=color:#e6db74>&#34;${{ secrets.EMAIL }}&#34;</span>
+          git config --local user.name <span style=color:#e6db74>&#34;mleone10&#34;</span>
+          git add -A
+          git commit -m <span style=color:#e6db74>&#34;Updating site&#34;</span>
+          git push -f <span style=color:#e6db74>&#34;https://${{ env.GITHUB_ACTOR }}:${{ secrets.GITHUB_TOKEN }}@github.com/mleone10/dnd-site.git&#34;</span> HEAD:gh-pages
+</code></pre></div><p>And there you have it! Automatic React builds on pushes to the <code>master</code> branch with zero third-party dependencies. That&rsquo;s a total success in my book.</p><p>I hope this was a helpful guide through the process of automatically deploying a React app to GitHub Pages. Find the project&rsquo;s full source code <a href=https://github.com/mleone10/dnd-site>here</a>.</p><p>Until next time,<br>- Mario</p></div></article></main><footer class="fullWidth h-card"><img class=u-photo src=/profilePic.jpeg>
+<span><p class=p-note>Hi, I'm Mario! Software engineering manager, actor, DIY-enthusiast. Trying new things every day and living life to the fullest!</p><p>&copy;
+2023
+<a class="p-name u-url u-uid" href=https://mleone.dev>Mario Leone</a>
+<a class=u-url rel=me href=https://github.com/mleone10><i class="fa-brands fa-github"></i></a><a class=u-url rel=me href=https://linkedin.com/in/mleone5244><i class="fa-brands fa-linkedin"></i></a><a class=u-url rel=me href=https://hachyderm.io/@mleone><i class="fa-brands fa-mastodon"></i></a></p></span></footer></body></html>
